@@ -1,12 +1,14 @@
 version: 0.0
 os: linux
 files:
-  - source: /
-    destination: /home/ubuntu
+ - source: .
+   destination: /home/ec2-user/app
 hooks:
   AfterInstall:
-    - location: afterinstall.sh
-      timeout: 10
+   - location: scripts/install_app_dependencies
+     timeout: 10
+     runas: root
   ApplicationStart:
-    - location: applicationstart.sh
-      timeout: 10
+   - location: scripts/start_server
+     timeout: 10
+     runas: root
