@@ -1,5 +1,3 @@
-# https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file.html
-
 version: 0.0
 os: linux
 files:
