@@ -1,24 +1,14 @@
 # https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file.html
 
 version: 0.0
-
-os: linux 
-
+os: linux
 files:
   - source: /
     destination: /home/ubuntu
-
 hooks:
-
   AfterInstall:
-    - location: install_os_dependencies.sh
+    - location: afterinstall.sh
       timeout: 10
-      runas: root
-    - location: install_python_dependencies.sh
-      timeout: 10
-      runas: root
-
   ApplicationStart:
-    - location: start_application.sh
+    - location: applicationstart.sh
       timeout: 10
-      runas: root
