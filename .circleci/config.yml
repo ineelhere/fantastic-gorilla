@@ -14,7 +14,7 @@ jobs:
           command: docker build -t ineelhere/fantastic-gorilla:latest .
       - run:
           name: Docker login
-          command: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+          command: echo $DOCKER_PASSWORD | docker login -u ineelhere --password-stdin
       - run:
           name: Docker push
           command: docker push ineelhere/fantastic-gorilla:latest
