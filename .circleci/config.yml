@@ -1,0 +1,25 @@
+version: 2.1
+
+orbs: 
+  python: circleci/python@2.0.3
+
+jobs:
+  build-and-test:
+   executor: python/default
+   steps:
+      - checkout
+      - run:
+          name: Docker image build
+          command: docker build -t fantastic-gorilla:latest .
+      - run:
+          name: Docker login
+          command: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+      - run:
+          name: Docker push
+          command: docker push fantastic-gorilla:latest
+      
+
+workflows:
+  develop:
+    jobs:
+      - build-and-test
