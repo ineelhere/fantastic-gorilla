@@ -10,13 +10,13 @@ jobs:
    steps:
       - checkout
       - run:
-          name: Docker image build
+          name: Docker Image Build
           command: docker build -t ineelhere/fantastic-gorilla:latest .
       - run:
-          name: Docker login
+          name: Docker Login
           command: echo $DOCKER_PASSWORD | docker login -u ineelhere --password-stdin
       - run:
-          name: Docker push
+          name: Docker Push
           command: docker push ineelhere/fantastic-gorilla:latest
       
 
